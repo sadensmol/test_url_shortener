@@ -11,8 +11,10 @@ you can call : localhost:8080/shorten?url=<your url> with GET request and it wil
 to redirect from short url to the full url you can call: 
 localhost:8080/url?shortUrl=<your short url> with POST request and it will redirect you to a full url
 
-
 The project doesn't have any additional web functionality like authentification, SSL, etc.
+The project doesn't have multithreading support.
+
+
 
 Unit tests cover only the main business logic.
 
@@ -28,6 +30,9 @@ Alternatively, if uppercase and lowercase letters are differentiated, then each 
 In order to form the key, a hash function can be made, or a random number generated so that key sequence is not predictable.
 
 In our solution we will use full list of numbers/chars: 0..9, A-Z, a-z
+
+Every URL in the database will be added with primary id and we will use base10 to base64 converter for shortening the url.
+depends on url's size in database we could enlarge number of chars in shortened url.
 
 
 

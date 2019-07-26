@@ -1,5 +1,7 @@
-package me.sadensmol.urlshortener;
+package me.sadensmol.urlshortener.controller;
 
+import me.sadensmol.urlshortener.repository.UrlRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -16,19 +18,17 @@ import java.net.UnknownHostException;
 
 @RestController
 @RequestMapping("/")
-public class Controller {
+public class UrlController {
 
+    private final UrlRepository urlRepository;
 
+    @Autowired
+    public UrlController(UrlRepository urlRepository) {
+        this.urlRepository = urlRepository;
+    }
     @RequestMapping(method = RequestMethod.GET, value = "/shorten",produces = "text/plain")
     public String shortenUrl(@RequestParam("url") String url){
-        String hostname = null;
-        try {
-            hostname = InetAddress.getLocalHost()
-                    .getHostAddress();
-        } catch (UnknownHostException e) {
-            hostname = "unknown";
-        }
-        return url + "Hello Spring Boot from " + hostname;
+        return "";
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/url")
