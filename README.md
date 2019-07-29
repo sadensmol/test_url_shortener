@@ -16,7 +16,7 @@ The project doesn't have multithreading support.
 
 
 
-Unit tests cover only the main business logic.
+Unit tests cover only the main business logic (min amount of tests).
 
 
 *** Url shortener algorithm ***
@@ -34,6 +34,25 @@ In our solution we will use full list of numbers/chars: 0..9, A-Z, a-z
 Every URL in the database will be added with primary id and we will use base10 to base64 converter for shortening the url.
 depends on url's size in database we could enlarge number of chars in shortened url.
 
+I took standard base10-base62 converter library instead of writing my own.
 
+*** Original test requirements ***
+URL shortener service.
+Url shortener services are used to create short links from the source URLs that will still redirect to the same page. (eg. goo.gl, tinyurl.com, and bit.ly)
+
+Your task is to implement a service with a single endpoint that takes a big URL and response with a shortened version.
+
+Requirements:
+
+Programming language: Kotlin/Java
+Clean code covered with unit tests
+Please don't bother yourself with database selection and use some embedded DB like h2
+Should use Spring Boot as well.
+
+Please include a small description of the algorithm and your considerations about the approach you chose.
+
+Code can be deployed to GitHub or sent as a zip archive with all necessary scripts, configs etc. We also expect that source code contains a script or instruction on how to run the service.
+
+As a final result we expect a small microservice that we can run locally. When invoking a registered endpoint to create short link we should receive the shortened URL. When sending the shortened URL to another endpoint we expect that the service redirects to the desired destination URL.
 
  

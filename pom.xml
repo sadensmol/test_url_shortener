@@ -68,6 +68,12 @@
       <scope>runtime</scope>
     </dependency>
 
+    <!-- todo just temporary dependency - rework later with own implementation-->
+    <dependency>
+      <groupId>io.seruco.encoding</groupId>
+      <artifactId>base62</artifactId>
+      <version>0.1.2</version>
+    </dependency>
   </dependencies>
 
   <build>

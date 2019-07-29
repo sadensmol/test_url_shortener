@@ -11,12 +11,19 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.Optional;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class TestUrlRepository {
 
     @Autowired
     private UrlRepository urlRepository;
+
+    @Test
+    public void urlRepositoryTest() {
+        assertThat(urlRepository).isNotNull();
+    }
 
     @Test
     public void findUrlById() {
